@@ -32,7 +32,7 @@ model_state_dict = torch.load(params["SAVE_DIR_PATH"])
 model.load_state_dict(model_state_dict)
 model.eval()
 
-result_dir = "webapp/static/result"
+result_dir = r"webapp/static/result"
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
@@ -64,7 +64,8 @@ def result():
     result_images = []
     for filename in os.listdir(result_dir):
         if filename.endswith('.png'):
-            result_images.append(url_for('static', filename=os.path.join("result", filename)))
+            result_images.append(url_for('static', filename=rf"result/{filename}"))
+
     
     return render_template('result.html', result_images=result_images)
 
