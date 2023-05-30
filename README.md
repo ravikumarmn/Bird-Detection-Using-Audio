@@ -1,4 +1,4 @@
-# Bird-Name-Detection
+# Bird-Detection-Using-Audio
 
 After traning model the train & val loss was overfitting
     Knowledge :
@@ -40,3 +40,9 @@ To run the project, you need to follow these steps:
 
   
 Make sure to follow the instructions provided in the run.sh script and update any necessary configurations or dependencies based on your project setup.
+
+
+
+<p align="center">
+  <img src="webapp/static/bird_detection_home.png" width="350" title="hover text">
+</p>

@@ -2,13 +2,26 @@ from flask import Flask, render_template, request, url_for
 import os
 from src.model import BirdClassifier
 from src import config
-from src.utils import image_transform,mel_spectrogram
+from src.utils import mel_spectrogram
 import torchaudio
 import torch
 import matplotlib
 matplotlib.use('Agg')
+from torchvision.transforms import Normalize, Resize, ToPILImage
+import torchvision.transforms as transforms
+
 
 import torch.nn.functional as F
+
+
+def image_transform(image):
+    transform = transforms.Compose([
+    ToPILImage(),
+    Resize((224, 224)),
+    transforms.ToTensor(),
+    # Normalize(mean=[0.5], std=[0.5])
+    ])
+    return transform(image)
 
 app = Flask(__name__)
 
@@ -30,8 +43,8 @@ def index():
             if params["IMAGE_TRANSFORM"]:
                 spectrogram = image_transform(spectrogram)
             import matplotlib.pyplot as plt
-
-            mel_spectrogram_path = os.path.join(result_dir, "mel_spectrogram.png")
+            
+            mel_spectrogram_path = os.path.join("webapp/static/", "mel_spectrogram.png")
             mel_spectrogram_image = spectrogram.squeeze(0).cpu().numpy()  # Convert tensor to numpy array
             plt.figure(figsize=(6, 3))
             plt.imshow(mel_spectrogram_image, aspect='auto')
@@ -45,16 +58,6 @@ def index():
             print("Predicted : ",prediction,predicted_labels)
             return render_template('index.html', prediction=prediction, mel_spectrogram="mel_spectrogram.png")
     return render_template('index.html')
-
-# @app.route('/result')
-# def result():
-#     result_images = []
-#     for filename in os.listdir(result_dir):
-#         if filename.endswith('.png'):
-#             result_images.append("result/"+filename) #result/accuracy_plot.png
-    
-#     return render_template('result.html', result_images=result_images)
-
 
 @app.route('/result')
 def result():
