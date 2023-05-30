@@ -1,0 +1,9 @@
+-e .
+pandas
+tqdm
+scikit-learn
+torch
+torchaudio
+matplotlib
+torchvision
+Flask

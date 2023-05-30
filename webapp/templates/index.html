@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bird Classification</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/result">Result</a></li> <!-- Added Result button with "/result" as the target URL -->
+        </ul>
+    </nav>
+    <div class="container">
+
+    <h1>Bird Classification</h1>
+    <form action="{{ url_for('index')}}" method="POST" enctype="multipart/form-data">
+
+        <div class="upload-container">
+            <input type="file" name="music_file" accept=".mp3, .wav">
+            <br>
+            <input type="submit" value="Predict">
+        </div>
+
+    </form>
+    <div class="image-container">
+        {% if mel_spectrogram %}
+            <img src="{{ url_for('static', filename=mel_spectrogram) }}" alt="Mel Spectrogram">
+        {% endif %}
+    </div>
+    {% if prediction %}
+        <h2>Prediction: {{ prediction }}</h2>
+    {% endif %}
+</div>
+
+</body>
+</html>

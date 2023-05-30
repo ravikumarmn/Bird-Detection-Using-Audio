@@ -1,0 +1,133 @@
+body {
+  font-family: "Arial", sans-serif;
+  text-align: center;
+  background-color: #565454;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  color: #ffffff;
+  font-size: 36px;
+  margin-bottom: 30px;
+}
+
+.upload-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.upload-container input[type="file"] {
+  padding: 12px 24px;
+  border: none;
+  background-color: #ffffff;
+  color: #333;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  margin-bottom: 10px;
+}
+
+.upload-container input[type="submit"] {
+  padding: 12px 24px;
+  border: none;
+  background-color: #333;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.upload-container input[type="submit"]:hover {
+  background-color: #444;
+}
+
+.image-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.image-container img {
+  max-width: 100%;
+  height: auto;
+}
+
+h2 {
+  text-align: center;
+  margin-top: 20px;
+}
+
+nav {
+  background-color: #333;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline-block;
+}
+
+nav ul li a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+}
+
+nav ul li a:hover {
+  background-color: #555;
+}
+
+/* Image Container */
+
+.image-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.image-container img {
+  max-width: 70%; /* To increase the size of images, change the value to 100% */
+  height: auto;
+  margin-bottom: 40px;
+}
+
+/* Prediction Heading */
+
+h2 {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Form Styles */
+
+form {
+  text-align: center;
+  margin-top: 20px;
+}
+
+form input[type="file"] {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+form input[type="submit"] {
+  display: block;
+  margin: 0 auto;
+}
