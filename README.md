@@ -9,7 +9,7 @@ After traning model the train & val loss was overfitting
         * Traning error = 1%
         * dev error = 11%
 
-From this image and knowledge we can say the bias is 1% and variance as 10%(11%-1%). Thus it has variance.
+we have a situation, where the bias is less and variance is hight. Thus it has variance.
 
 So solve the variance problem. I  have added dropout.(reduces the variance but increases bias.)
 
